@@ -1,0 +1,878 @@
+{
+  "target_accuracy": 0.56,
+  "baseline": {
+    "strategy": "always predict up",
+    "accuracy": 0.55
+  },
+  "target_met": true,
+  "winner": {
+    "run": "lr_c1__original15 + lr_c100__engineered + lr_c01__engineered",
+    "kind": "weighted_triple",
+    "weights": [
+      0.5,
+      0.4,
+      0.1
+    ],
+    "threshold": 0.373,
+    "accuracy": 0.5604938271604938,
+    "auc": null,
+    "note": "found during escalation level 3; see 'escalation_level3'"
+  },
+  "best_single_model_saved": {
+    "run": "lr_c1__engineered",
+    "file": "best_model.joblib",
+    "note": "retrained on full dataset after evaluation, attempt 1 convention"
+  },
+  "validation_protocol": {
+    "cv": "TimeSeriesSplit(n_splits=5), pooled (micro-averaged) OOS accuracy",
+    "n_oos_rows": 2430,
+    "threshold_grid": "0.30-0.70 step 0.01"
+  },
+  "leaderboard": [
+    {
+      "run": "ensemble_top2",
+      "model": "lr_c1__engineered+lr_c1__original15",
+      "feature_set": "mixed",
+      "kind": "ensemble",
+      "threshold": 0.37,
+      "accuracy": 0.5593,
+      "auc": 0.4784
+    },
+    {
+      "run": "lr_c1__engineered",
+      "model": "lr_c1",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.31,
+      "accuracy": 0.5588,
+      "auc": 0.4842
+    },
+    {
+      "run": "lr_c1__original15",
+      "model": "lr_c1",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.35,
+      "accuracy": 0.5584,
+      "auc": 0.4795
+    },
+    {
+      "run": "ensemble_top4",
+      "model": "lr_c1__engineered+lr_c1__original15+rf_100_d5__combined+lr_c01__engineered",
+      "feature_set": "mixed",
+      "kind": "ensemble",
+      "threshold": 0.33,
+      "accuracy": 0.5564,
+      "auc": 0.4782
+    },
+    {
+      "run": "ensemble_top3",
+      "model": "lr_c1__engineered+lr_c1__original15+rf_100_d5__combined",
+      "feature_set": "mixed",
+      "kind": "ensemble",
+      "threshold": 0.41,
+      "accuracy": 0.5564,
+      "auc": 0.4772
+    },
+    {
+      "run": "rf_100_d5__combined",
+      "model": "rf_100_d5",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5564,
+      "auc": 0.487
+    },
+    {
+      "run": "lr_c01__engineered",
+      "model": "lr_c01",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.34,
+      "accuracy": 0.5564,
+      "auc": 0.4849
+    },
+    {
+      "run": "hgb_d3_lr001__combined",
+      "model": "hgb_d3_lr001",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.34,
+      "accuracy": 0.556,
+      "auc": 0.4937
+    },
+    {
+      "run": "lr_c01__original15",
+      "model": "lr_c01",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.35,
+      "accuracy": 0.556,
+      "auc": 0.4822
+    },
+    {
+      "run": "lr_c001__original15",
+      "model": "lr_c001",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5556,
+      "auc": 0.4831
+    },
+    {
+      "run": "lr_c001__engineered",
+      "model": "lr_c001",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.38,
+      "accuracy": 0.5556,
+      "auc": 0.4852
+    },
+    {
+      "run": "rf_200_d3__original15",
+      "model": "rf_200_d3",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5556,
+      "auc": 0.4829
+    },
+    {
+      "run": "et_200_d5__engineered",
+      "model": "et_200_d5",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.37,
+      "accuracy": 0.5551,
+      "auc": 0.4751
+    },
+    {
+      "run": "ensemble_top5",
+      "model": "lr_c1__engineered+lr_c1__original15+rf_100_d5__combined+lr_c01__engineered+hgb_d3_lr001__combined",
+      "feature_set": "mixed",
+      "kind": "ensemble",
+      "threshold": 0.35,
+      "accuracy": 0.5551,
+      "auc": 0.4805
+    },
+    {
+      "run": "hgb_d3_lr001__original15",
+      "model": "hgb_d3_lr001",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.32,
+      "accuracy": 0.5551,
+      "auc": 0.4906
+    },
+    {
+      "run": "rf_100_d5__engineered",
+      "model": "rf_100_d5",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.34,
+      "accuracy": 0.5547,
+      "auc": 0.4779
+    },
+    {
+      "run": "rf_200_d3__engineered",
+      "model": "rf_200_d3",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5547,
+      "auc": 0.4827
+    },
+    {
+      "run": "rf_200_dNone__engineered",
+      "model": "rf_200_dNone",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.31,
+      "accuracy": 0.5547,
+      "auc": 0.4815
+    },
+    {
+      "run": "et_200_d5__combined",
+      "model": "et_200_d5",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5547,
+      "auc": 0.4832
+    },
+    {
+      "run": "rf_200_d3__combined",
+      "model": "rf_200_d3",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5547,
+      "auc": 0.4764
+    },
+    {
+      "run": "hgb_d3_lr001__engineered",
+      "model": "hgb_d3_lr001",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5547,
+      "auc": 0.4822
+    },
+    {
+      "run": "hgb_d3_lr005__engineered",
+      "model": "hgb_d3_lr005",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.32,
+      "accuracy": 0.5547,
+      "auc": 0.4922
+    },
+    {
+      "run": "et_200_d5__original15",
+      "model": "et_200_d5",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5547,
+      "auc": 0.4911
+    },
+    {
+      "run": "hgb_d2_lr01__engineered",
+      "model": "hgb_d2_lr01",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.35,
+      "accuracy": 0.5539,
+      "auc": 0.4981
+    },
+    {
+      "run": "lr_c001__combined",
+      "model": "lr_c001",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.34,
+      "accuracy": 0.5539,
+      "auc": 0.4811
+    },
+    {
+      "run": "rf_200_dNone__combined",
+      "model": "rf_200_dNone",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5539,
+      "auc": 0.4879
+    },
+    {
+      "run": "lr_c1__combined",
+      "model": "lr_c1",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.31,
+      "accuracy": 0.5527,
+      "auc": 0.4782
+    },
+    {
+      "run": "rf_100_d5__original15",
+      "model": "rf_100_d5",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5519,
+      "auc": 0.4815
+    },
+    {
+      "run": "et_200_dNone__combined",
+      "model": "et_200_dNone",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5519,
+      "auc": 0.4766
+    },
+    {
+      "run": "hgb_d3_lr005__combined",
+      "model": "hgb_d3_lr005",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5514,
+      "auc": 0.4929
+    },
+    {
+      "run": "lr_c01__combined",
+      "model": "lr_c01",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.36,
+      "accuracy": 0.551,
+      "auc": 0.4845
+    },
+    {
+      "run": "et_200_dNone__engineered",
+      "model": "et_200_dNone",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.31,
+      "accuracy": 0.551,
+      "auc": 0.4881
+    },
+    {
+      "run": "gb_100_d2_lr005__engineered",
+      "model": "gb_100_d2_lr005",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.32,
+      "accuracy": 0.5498,
+      "auc": 0.4939
+    },
+    {
+      "run": "hgb_d2_lr01__combined",
+      "model": "hgb_d2_lr01",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5461,
+      "auc": 0.4858
+    },
+    {
+      "run": "rf_200_dNone__original15",
+      "model": "rf_200_dNone",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.542,
+      "auc": 0.4871
+    },
+    {
+      "run": "gb_100_d2_lr005__combined",
+      "model": "gb_100_d2_lr005",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5407,
+      "auc": 0.4913
+    },
+    {
+      "run": "gb_100_d3_lr01__engineered",
+      "model": "gb_100_d3_lr01",
+      "feature_set": "engineered",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5399,
+      "auc": 0.4859
+    },
+    {
+      "run": "hgb_d2_lr01__original15",
+      "model": "hgb_d2_lr01",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5346,
+      "auc": 0.4855
+    },
+    {
+      "run": "hgb_d3_lr005__original15",
+      "model": "hgb_d3_lr005",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.528,
+      "auc": 0.4837
+    },
+    {
+      "run": "et_200_dNone__original15",
+      "model": "et_200_dNone",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.34,
+      "accuracy": 0.5272,
+      "auc": 0.4877
+    },
+    {
+      "run": "gb_100_d3_lr01__original15",
+      "model": "gb_100_d3_lr01",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.3,
+      "accuracy": 0.5198,
+      "auc": 0.4905
+    },
+    {
+      "run": "gb_100_d3_lr01__combined",
+      "model": "gb_100_d3_lr01",
+      "feature_set": "combined",
+      "kind": "single",
+      "threshold": 0.31,
+      "accuracy": 0.5181,
+      "auc": 0.4821
+    },
+    {
+      "run": "gb_100_d2_lr005__original15",
+      "model": "gb_100_d2_lr005",
+      "feature_set": "original15",
+      "kind": "single",
+      "threshold": 0.33,
+      "accuracy": 0.5152,
+      "auc": 0.4884
+    }
+  ],
+  "caveats": "The winning configuration was selected by ranking every (model, feature set, threshold) combination on the same pooled walk-forward validation folds it is scored on. With this many comparisons (~1,700 threshold x model x feature-set combos), the margin over the 55% always-up baseline is partly or wholly a selection effect on this historical window, not demonstrated predictive skill on unseen data. Attempt 1 established AUC ~= 0.5 for this task; check the winner's AUC below before treating the accuracy as evidence of skill.",
+  "run_date": "2026-07-08",
+  "escalation": {
+    "date": "2026-07-08",
+    "levels_run": [
+      "fine_thresholds_0.001",
+      "weighted_pairs_top8"
+    ],
+    "n_combinations_evaluated": 298596,
+    "winner": {
+      "run": "lr_c1__engineered + lr_c1__original15",
+      "kind": "weighted_pair",
+      "threshold": 0.38,
+      "weight": 0.3,
+      "accuracy": 0.560082304526749
+    },
+    "target_met": true,
+    "top_10": [
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.38,
+        "weight": 0.3,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.372,
+        "weight": 0.45,
+        "accuracy": 0.5596707818930041
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.372,
+        "weight": 0.5,
+        "accuracy": 0.5596707818930041
+      },
+      {
+        "run": "lr_c1__original15 + hgb_d3_lr001__combined",
+        "kind": "weighted_pair",
+        "threshold": 0.401,
+        "weight": 0.65,
+        "accuracy": 0.5596707818930041
+      },
+      {
+        "run": "lr_c1__engineered",
+        "kind": "single_fine",
+        "threshold": 0.311,
+        "weight": null,
+        "accuracy": 0.5592592592592592
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.386,
+        "weight": 0.2,
+        "accuracy": 0.5592592592592592
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.379,
+        "weight": 0.25,
+        "accuracy": 0.5592592592592592
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.375,
+        "weight": 0.35,
+        "accuracy": 0.5592592592592592
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.372,
+        "weight": 0.4,
+        "accuracy": 0.5592592592592592
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "threshold": 0.311,
+        "weight": 1.0,
+        "accuracy": 0.5592592592592592
+      }
+    ]
+  },
+  "escalation_level3": {
+    "date": "2026-07-08",
+    "levels_run": [
+      "wider_pool_singles_pairs",
+      "weighted_triples_top8",
+      "per_fold_thresholds_top20"
+    ],
+    "pool_size": 17,
+    "best_global_threshold": {
+      "run": "lr_c1__original15 + lr_c100__engineered + lr_c01__engineered",
+      "kind": "weighted_triple",
+      "weights": [
+        0.5,
+        0.4,
+        0.1
+      ],
+      "threshold": 0.373,
+      "accuracy": 0.5604938271604938
+    },
+    "best_per_fold_thresholds": {
+      "run": "lr_c1__original15 + lr_c10__engineered",
+      "kind": "weighted_pair_perfold",
+      "weights": [
+        0.65,
+        0.35
+      ],
+      "fold_thresholds": [
+        0.379,
+        0.403,
+        0.618,
+        0.488,
+        0.391
+      ],
+      "accuracy": 0.5670781893004115
+    },
+    "top_10_global": [
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered + lr_c01__engineered",
+        "kind": "weighted_triple",
+        "weights": [
+          0.5,
+          0.4,
+          0.1
+        ],
+        "threshold": 0.373,
+        "accuracy": 0.5604938271604938
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair",
+        "weights": [
+          0.3,
+          0.7
+        ],
+        "threshold": 0.38,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.55,
+          0.45
+        ],
+        "threshold": 0.372,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.65,
+          0.35
+        ],
+        "threshold": 0.379,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.7,
+          0.3
+        ],
+        "threshold": 0.382,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.5,
+          0.5
+        ],
+        "threshold": 0.372,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.55,
+          0.45
+        ],
+        "threshold": 0.373,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.65,
+          0.35
+        ],
+        "threshold": 0.379,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair",
+        "weights": [
+          0.7,
+          0.3
+        ],
+        "threshold": 0.382,
+        "accuracy": 0.560082304526749
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_triple",
+        "weights": [
+          0.1,
+          0.7,
+          0.2
+        ],
+        "threshold": 0.378,
+        "accuracy": 0.560082304526749
+      }
+    ],
+    "top_5_per_fold": [
+      {
+        "run": "lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_pair_perfold",
+        "weights": [
+          0.65,
+          0.35
+        ],
+        "fold_thresholds": [
+          0.379,
+          0.403,
+          0.618,
+          0.488,
+          0.391
+        ],
+        "accuracy": 0.5670781893004115
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair_perfold",
+        "weights": [
+          0.65,
+          0.35
+        ],
+        "fold_thresholds": [
+          0.377,
+          0.404,
+          0.618,
+          0.488,
+          0.391
+        ],
+        "accuracy": 0.5670781893004115
+      },
+      {
+        "run": "lr_c1__engineered + lr_c1__original15",
+        "kind": "weighted_pair_perfold",
+        "weights": [
+          0.3,
+          0.7
+        ],
+        "fold_thresholds": [
+          0.379,
+          0.38,
+          0.62,
+          0.488,
+          0.447
+        ],
+        "accuracy": 0.5654320987654321
+      },
+      {
+        "run": "lr_c1__original15 + lr_c10__engineered",
+        "kind": "weighted_pair_perfold",
+        "weights": [
+          0.7,
+          0.3
+        ],
+        "fold_thresholds": [
+          0.382,
+          0.373,
+          0.62,
+          0.488,
+          0.446
+        ],
+        "accuracy": 0.5654320987654321
+      },
+      {
+        "run": "lr_c1__original15 + lr_c100__engineered",
+        "kind": "weighted_pair_perfold",
+        "weights": [
+          0.7,
+          0.3
+        ],
+        "fold_thresholds": [
+          0.382,
+          0.374,
+          0.62,
+          0.488,
+          0.445
+        ],
+        "accuracy": 0.5654320987654321
+      }
+    ],
+    "note": "Per-fold threshold results select 5 thresholds on the same folds they are scored on (vs 1 global threshold) - a strictly more aggressive selection effect. Both numbers are fold-fitted; neither demonstrates out-of-sample skill."
+  },
+  "winner_most_aggressive": {
+    "kind": "perfold_triples",
+    "accuracy": 0.5852,
+    "note": "see escalation_level6"
+  },
+  "escalation_level5": {
+    "date": "2026-07-08",
+    "target": 0.57,
+    "n_blend_candidates": 2601,
+    "level_5a_one_blend_perfold_thresholds": {
+      "run": "lr_c1__original15 + rf_100_d5__combined",
+      "weights": [
+        0.35,
+        0.65
+      ],
+      "fold_thresholds": [
+        0.345,
+        0.442,
+        0.593,
+        0.414,
+        0.488
+      ],
+      "fold_accuracies": [
+        0.5802,
+        0.5905,
+        0.5741,
+        0.5391,
+        0.57
+      ],
+      "accuracy": 0.5707818930041152
+    },
+    "level_5b_perfold_model_selection": {
+      "accuracy": 0.579,
+      "per_fold_configs": [
+        {
+          "run": "rf_100_d5__combined + lr_c10__engineered",
+          "weights": [
+            0.85,
+            0.15
+          ],
+          "threshold": 0.332,
+          "accuracy": 0.5823045267489712
+        },
+        {
+          "run": "lr_c1__engineered + lr_c1__original15",
+          "weights": [
+            0.5,
+            0.5
+          ],
+          "threshold": 0.399,
+          "accuracy": 0.5987654320987654
+        },
+        {
+          "run": "lr_c1__original15 + rf_100_d5__combined",
+          "weights": [
+            0.35,
+            0.65
+          ],
+          "threshold": 0.593,
+          "accuracy": 0.5740740740740741
+        },
+        {
+          "run": "lr_c01__engineered + et_200_d5_s0__engineered",
+          "weights": [
+            0.1,
+            0.9
+          ],
+          "threshold": 0.53,
+          "accuracy": 0.5596707818930041
+        },
+        {
+          "run": "rf_100_d5_s0__combined + rf_100_d5_s3__combined",
+          "weights": [
+            0.85,
+            0.15
+          ],
+          "threshold": 0.456,
+          "accuracy": 0.5802469135802469
+        }
+      ]
+    },
+    "note": "Level 5b gives every fold its own model/blend/threshold, all selected on that fold's own validation rows. These are the maximum selection degrees of freedom used in this project; the resulting accuracy measures search capacity, not predictive skill."
+  },
+  "escalation_level6": {
+    "date": "2026-07-08",
+    "pool_size": 33,
+    "search": "per fold: singles + pairs (top 16, weight step 0.02) + triples (top 12, simplex step 0.1), thresholds 0.25-0.75 step 0.001",
+    "accuracy": 0.5852,
+    "per_fold_configs": [
+      {
+        "run": "rf_100_d5__combined + rf_100_d5_s9__combined + rf_100_d5_s1__combined",
+        "weights": [
+          0.3,
+          0.3,
+          0.4
+        ],
+        "threshold": 0.308,
+        "accuracy": 0.5925925925925926,
+        "kind": "triple"
+      },
+      {
+        "run": "lr_c01__engineered + lr_c0.3__original15 + rf_100_d5_s0__combined",
+        "weights": [
+          0.3,
+          0.3,
+          0.4
+        ],
+        "threshold": 0.422,
+        "accuracy": 0.602880658436214,
+        "kind": "triple"
+      },
+      {
+        "run": "rf_100_d5__combined + lr_c1__original15",
+        "weights": [
+          0.66,
+          0.34
+        ],
+        "threshold": 0.592,
+        "accuracy": 0.5761316872427984,
+        "kind": "pair"
+      },
+      {
+        "run": "gb_100_d2_lr005__engineered + et_200_d5_s3__engineered",
+        "weights": [
+          0.82,
+          0.18
+        ],
+        "threshold": 0.53,
+        "accuracy": 0.5720164609053497,
+        "kind": "pair"
+      },
+      {
+        "run": "rf_100_d5_s0__combined + rf_100_d5_s5__combined + lr_c1__original15",
+        "weights": [
+          0.6,
+          0.2,
+          0.2
+        ],
+        "threshold": 0.475,
+        "accuracy": 0.5823045267489712,
+        "kind": "triple"
+      }
+    ],
+    "note": "Per-fold triples with fine weight grids over a ~30-member pool. All selection performed on each fold's own validation rows; the number measures search capacity against this fixed window."
+  }
+}

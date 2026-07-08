@@ -1,0 +1,156 @@
+{
+  "model_comparison": {
+    "logistic_regression": {
+      "accuracy": 0.513,
+      "precision": 0.522,
+      "recall": 0.73,
+      "f1": 0.551
+    },
+    "random_forest": {
+      "accuracy": 0.492,
+      "precision": 0.584,
+      "recall": 0.392,
+      "f1": 0.407
+    },
+    "gradient_boosting": {
+      "accuracy": 0.484,
+      "precision": 0.458,
+      "recall": 0.343,
+      "f1": 0.357
+    },
+    "hist_gradient_boosting": {
+      "accuracy": 0.5,
+      "precision": 0.564,
+      "recall": 0.5,
+      "f1": 0.497
+    }
+  },
+  "baseline": {
+    "strategy": "always predict up",
+    "accuracy": 0.55
+  },
+  "selected_model": {
+    "name": "hgb_accuracy",
+    "model_type": "HistGradientBoostingClassifier",
+    "model_file": "hgb_v2.joblib",
+    "hyperparameters": {
+      "class_weight": null,
+      "learning_rate": 0.01,
+      "max_depth": 3,
+      "max_iter": 100,
+      "random_state": 42
+    },
+    "selection_criterion": "equity curve Sharpe and total return across 8 tuned configs",
+    "selection_date": "2026-07-07"
+  },
+  "equity_curve_metrics": {
+    "strategy": {
+      "sharpe_ratio": 0.564,
+      "max_drawdown_pct": -28.95,
+      "total_return_pct": 103.62
+    },
+    "buy_and_hold": {
+      "sharpe_ratio": 0.877,
+      "max_drawdown_pct": -33.72,
+      "total_return_pct": 297.49
+    }
+  },
+  "metadata": {
+    "training_date": "2026-07-07",
+    "model_type": "HistGradientBoostingClassifier",
+    "hyperparameters": {
+      "max_iter": 100,
+      "learning_rate": 0.1,
+      "random_state": 42
+    },
+    "features": [
+      "Close",
+      "Volume",
+      "RSI",
+      "MACD",
+      "MACD_Signal",
+      "MACD_Hist",
+      "BB_Upper",
+      "SMA_50",
+      "ATR",
+      "OBV",
+      "Stoch_K",
+      "Stoch_D",
+      "Williams_R",
+      "ROC",
+      "Daily_Return"
+    ]
+  },
+  "tuned_config_comparison": {
+    "lr_accuracy": {
+      "accuracy": 0.5284,
+      "recall_down": 0.2068,
+      "auc": 0.4841,
+      "sharpe": 0.7252,
+      "total_return": 1.9237,
+      "max_drawdown": -0.3372
+    },
+    "lr_recall": {
+      "accuracy": 0.4928,
+      "recall_down": 0.3695,
+      "auc": 0.4846,
+      "sharpe": 0.4388,
+      "total_return": 0.7325,
+      "max_drawdown": -0.3372
+    },
+    "rf_accuracy": {
+      "accuracy": 0.4949,
+      "recall_down": 0.5607,
+      "auc": 0.5066,
+      "sharpe": 0.6241,
+      "total_return": 1.1822,
+      "max_drawdown": -0.3044
+    },
+    "rf_recall": {
+      "accuracy": 0.4818,
+      "recall_down": 0.6636,
+      "auc": 0.4989,
+      "sharpe": 0.4881,
+      "total_return": 0.7471,
+      "max_drawdown": -0.3007
+    },
+    "gb_accuracy": {
+      "accuracy": 0.4941,
+      "recall_down": 0.4991,
+      "auc": 0.5009,
+      "sharpe": 0.4818,
+      "total_return": 0.7999,
+      "max_drawdown": -0.3044
+    },
+    "gb_recall": {
+      "accuracy": 0.4928,
+      "recall_down": 0.6581,
+      "auc": 0.5073,
+      "sharpe": 0.5531,
+      "total_return": 0.8719,
+      "max_drawdown": -0.2832
+    },
+    "hgb_accuracy": {
+      "accuracy": 0.526,
+      "recall_down": 0.3061,
+      "auc": 0.4984,
+      "sharpe": 0.7879,
+      "total_return": 2.154,
+      "max_drawdown": -0.2832
+    },
+    "hgb_recall": {
+      "accuracy": 0.4793,
+      "recall_down": 0.5947,
+      "auc": 0.4934,
+      "sharpe": 0.3249,
+      "total_return": 0.4236,
+      "max_drawdown": -0.2832
+    }
+  },
+  "buy_and_hold": {
+    "sharpe": 0.8754,
+    "total_return": 2.9654,
+    "max_drawdown": -0.3372
+  },
+  "key_finding": "No model across 4 families and 40+ hyperparameter configs beat the 55% baseline accuracy, buy-and-hold Sharpe, or coin-flip AUC. Selected model is the best of the set by equity curve metrics, not a model with demonstrated predictive skill (AUC 0.498)."
+}
